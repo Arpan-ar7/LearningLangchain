@@ -19,4 +19,5 @@ dependencies = [
     "transformers>=5.16.1",
     "torch>=2.13.0",
     "sentence-transformers>=6.0.1",
+    "grandalf>=0.8",
 ]

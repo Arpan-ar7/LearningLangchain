@@ -1,0 +1,1 @@
+chain.get_graph().print_ascii()
