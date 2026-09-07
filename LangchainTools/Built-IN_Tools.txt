@@ -1,0 +1,338 @@
+1. 🔎 Search tools
+Tool	Use case	Install
+DuckDuckGo	General web search	uv add duckduckgo-search
+Brave Search	Web search	uv add langchain-community
+Wikipedia	Search Wikipedia	uv add wikipedia
+ArXiv	Search research papers	uv add arxiv
+PubMed	Search medical/scientific papers	uv add xmltodict
+Semantic Scholar	Search academic papers	uv add semanticscholar
+StackExchange	Search Stack Overflow etc.	uv add stackapi
+Google Search	Google Custom Search	uv add google-api-python-client
+Google Books	Search books	uv add google-api-python-client
+Reddit Search	Search Reddit	varies by integration
+
+LangChain currently lists DuckDuckGo, Brave, Google, Bing, Exa, etc. as search integrations; DuckDuckGo is listed as free, while many others require paid/API access.
+
+For you, learn first:
+uv add duckduckgo-search wikipedia arxiv
+2. 🌐 Web / HTTP tools
+
+These are extremely useful for agents.
+
+Tool	Use case	Install
+Requests GET	Call an API	uv add requests
+Requests POST	Send data to API	uv add requests
+Requests PUT	Update API resource	uv add requests
+Requests PATCH	Partially update API resource	uv add requests
+Requests DELETE	Delete API resource	uv add requests
+
+LangChain's Requests tools provide GET, POST, PUT, PATCH and DELETE operations.
+
+Install:
+
+uv add requests
+
+This is important because you can build an agent that does:
+
+User
+ ↓
+LLM
+ ↓
+"I need weather data"
+ ↓
+API tool
+ ↓
+Weather API
+ ↓
+LLM
+ ↓
+Answer
+3. 🧮 Python / Code execution
+Tool	Use case	Install
+Python REPL	Execute Python	Usually langchain
+E2B Data Analysis	Run Python in sandbox	uv add e2b-code-interpreter
+Shell Tool	Execute shell commands	langchain-community
+Riza Code Interpreter	Execute code remotely	separate integration
+Bearly Interpreter	Python sandbox	separate integration
+
+LangChain includes Python/code execution tools and sandboxed interpreter integrations.
+
+Python REPL is especially useful for learning agents.
+
+Example:
+
+User: What is 9283 × 1298?
+
+Agent
+ ↓
+Python tool
+ ↓
+calculates
+ ↓
+LLM
+ ↓
+Answer
+4. 🗄️ SQL / Database tools
+
+These are VERY important for ML/AI engineering jobs.
+
+Tool	Use case
+QuerySQLDatabaseTool	Execute SQL
+InfoSQLDatabaseTool	Get database schema
+ListSQLDatabaseTool	List tables
+QuerySQLCheckerTool	Check generated SQL
+SQLDatabaseToolkit	Collection of SQL tools
+
+LangChain provides SQL tools for querying databases, inspecting schemas and checking generated SQL.
+
+Install the relevant database driver depending on your DB.
+
+For SQLite:
+
+uv add sqlalchemy
+
+For PostgreSQL:
+
+uv add sqlalchemy psycopg2-binary
+
+This lets you build:
+
+User:
+"How many users registered this month?"
+
+        ↓
+
+AI Agent
+
+        ↓
+
+SQL Tool
+
+        ↓
+
+SELECT COUNT(*) ...
+
+        ↓
+
+Database
+
+        ↓
+
+Answer
+
+Definitely learn this one.
+
+5. 📊 Data analysis tools
+Tool	Use case
+Pandas DataFrame	Analyze tabular data
+Python REPL	Calculations
+E2B Data Analysis	Sandboxed data analysis
+Power BI	BI/data analysis
+Tableau	BI
+Spark SQL	Big-data SQL
+
+LangChain's current integrations include Pandas DataFrame, E2B data analysis, Spark SQL and other data-analysis tools.
+
+For your ML background, Pandas + Python + SQL are the most useful.
+
+6. 🐙 GitHub tools
+
+The GitHub integration allows an agent to interact with GitHub repositories.
+
+Use cases:
+
+"Find the README"
+"Search this repository"
+"Inspect this code"
+"Create/update GitHub actions"
+
+The GitHub tool uses the PyGithub library and requires GITHUB_API_TOKEN and repository information.
+
+Install:
+
+uv add PyGithub
+7. 📧 Email / Productivity tools
+
+LangChain has integrations for:
+
+Tool	Use
+Gmail	Read/search/send email
+Outlook / Office365	Email + calendar
+Google Calendar	Calendar operations
+Slack	Messages/workspace
+Jira	Project management
+GitHub	Development
+Salesforce	CRM
+
+These are generally API integrations, so you'll need authentication/credentials.
+
+Current LangChain docs list Gmail, GitHub, GitLab, Jira, Office365, Slack and other productivity integrations.
+
+Don't install these now unless you're actually building an agent that needs them.
+
+8. 📚 Research tools
+
+These are particularly useful for your AI projects.
+
+Tool	Use
+ArXiv	Research papers
+PubMed	Medical papers
+Semantic Scholar	Academic papers
+Wikipedia	General knowledge
+Google Books	Books
+
+Install the basic ones:
+
+uv add arxiv wikipedia semanticscholar
+
+PubMed:
+
+uv add langchain-community
+
+The PubMed LangChain tool searches the PubMed API and returns document summaries.
+
+9. 🎬 YouTube
+
+Useful for your current project.
+
+You can use YouTube-related integrations for:
+
+Search videos
+       ↓
+Get video
+       ↓
+Get transcript
+       ↓
+RAG
+       ↓
+Ask questions
+
+You've already been working on exactly this type of application.
+
+10. 🖼️ Image tools
+
+Some integrations allow agents to work with images.
+
+Examples include:
+
+Tool	Use
+SceneXplain	Image understanding
+DALL-E integration	Image generation
+Google Imagen	Image generation
+
+For example:
+
+User
+ ↓
+"Describe this image"
+ ↓
+Vision/Image tool
+ ↓
+Description
+
+These generally require provider-specific packages/API keys.
+
+11. 📁 File-system tools
+
+LangChain Community also has tools for working with files:
+
+Tool	Use
+ReadFileTool	Read files
+WriteFileTool	Write files
+CopyFileTool	Copy files
+MoveFileTool	Move files
+DeleteFileTool	Delete files
+ListDirectoryTool	List directories
+FileSearchTool	Search files
+
+These are present in the current community tool reference.
+
+Be careful with agents that have file-write/delete access.
+
+12. 🌐 Browser automation
+
+There are tools for agents that actually interact with websites:
+
+Tool	Use
+Playwright	Browser automation
+AgentQL	Browser interaction
+Hyperbrowser	Browser agents
+MultiOn	Web actions
+
+For example:
+
+Agent
+ ↓
+Open website
+ ↓
+Click button
+ ↓
+Fill form
+ ↓
+Read result
+
+These are more advanced. LangChain's current tool integrations include Playwright and several browser-agent platforms.
+
+13. 💰 Finance
+
+Examples:
+
+Tool	Use
+Yahoo Finance	Financial data/news
+Alpha Vantage	Market data
+Polygon	Market data
+FMP	Financial data
+
+For example:
+
+"What is Apple's current stock price?"
+          ↓
+Finance tool
+          ↓
+Market data
+          ↓
+LLM
+
+Some require API keys and/or paid plans.
+
+14. ✈️ Travel
+
+There are integrations for:
+
+Tool	Use
+Amadeus	Flights/travel
+Google Places	Places
+Google Maps-related integrations	Location
+OpenWeatherMap	Weather
+
+For example:
+
+"Find flights from Delhi to Mumbai"
+              ↓
+          Flight tool
+              ↓
+          Results
+15. 🧠 Vector-store tools
+
+Since you're learning RAG, this is important.
+
+LangChain has tools for interacting with vector stores:
+
+VectorStoreQATool
+VectorStoreQAWithSourcesTool
+
+These allow agents to use your vector database as a tool.
+
+Your architecture can become:
+
+             ┌── DuckDuckGo
+             │
+User → Agent ├── Wikipedia
+             │
+             ├── SQL Database
+             │
+             ├── YouTube
+             │
+             └── Vector DB
+
+This is where Agents + RAG starts becoming really interesting.
